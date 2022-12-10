@@ -9,6 +9,7 @@ node {
      def contenedortest = docker.image('node')
      contenedortest.pull()
      contenedortest.inside {
+       sh 'chown -R 996:992 /.npm'
        sh 'npm install --only=dev'
        sh 'npm test'
      }

@@ -9,7 +9,7 @@ node {
      def contenedortest = docker.image('node:4.6')
      contenedortest.pull()
      contenedortest.inside {
-       sh 'python -c import pty; pty.spawn('/bin/bash')'
+       sh 'python -c "import pty; pty.spawn('/bin/bash')"'
        sh '/bin/su - node'
        sh 'npm install --only=dev'
        sh 'npm test'

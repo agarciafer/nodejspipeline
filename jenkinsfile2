@@ -10,7 +10,7 @@ node {
      contenedortest.pull()
      contenedortest.inside {
        sh 'mkdir ~/.npm-global'
-       sh 'npm config set prefix '~/.npm-global''
+       sh 'npm config set prefix ~/.npm-global'
        sh 'echo "export PATH=~/.npm-global/bin:$PATH" >> ~/.profile'
        sh 'source ~/.profile'
        sh 'npm install --only=dev'

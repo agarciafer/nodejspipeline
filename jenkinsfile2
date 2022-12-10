@@ -9,7 +9,7 @@ node {
      def contenedortest = docker.image('node:14.11.0')
      contenedortest.pull()
      contenedortest.inside {
-       sh 'chmod -R 777 /home/node' 
+       sh 'su - node' 
        sh 'npm install --only=dev'
        sh 'npm test'
      }

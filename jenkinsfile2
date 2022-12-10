@@ -9,6 +9,8 @@ node {
      def contenedortest = docker.image('node:14.11.0')
      contenedortest.pull()
      contenedortest.inside {
+       sh 'apt update -y'
+       sh 'apt install sudo -y'
        sh 'sudo -i'
        sh 'mkdir ~/.npm-global'
        sh 'npm config set prefix ~/.npm-global'

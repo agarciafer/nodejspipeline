@@ -10,7 +10,7 @@ node {
     // contenedortest.pull()
      //contenedortest.inside {
      nodejs(nodeJSInstallationName: 'nodejs') {
-       sh 'chown 1000:1000 ./home'
+       sh 'chown 1000:1000 ./'
         sh 'npm install --only=dev'
        sh 'npm test'
      }

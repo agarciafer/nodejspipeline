@@ -1,10 +1,3 @@
-agent {
-    docker {
-        image 'node:15-alpine'
-        args '-u root:root'
-        reuseNode true
-    }
-}
 node {
    def gitcommit
    stage('Verificacion SCM') {
@@ -13,7 +6,10 @@ node {
      gitcommit = readFile('.git/commit-id').trim()
    }
    stage('test') {
-     steps {
+     def contenedortest = docker.image('node:4.6')
+     contenedortest.pull()
+     contenedortest.inside {
+        sh "chmod 777 ./mvnw"
        sh 'npm install --only=dev'
        sh 'npm test'
      }
@@ -24,5 +20,4 @@ node {
       nuestraapp.push()
      }
    }
- }
-
+}

@@ -7,10 +7,10 @@ node {
    }
    stage('test') {
      def contenedortest = docker.image('node:4.6')
-     contenedortest.pull()
-     contenedortest.inside {
-        sh "chmod 777 ./mvnw"
-       sh 'npm install --only=dev'
+    // contenedortest.pull()
+     //contenedortest.inside {
+     nodejs(nodeJSInstallationName: 'nodejs') {
+        sh 'npm install --only=dev'
        sh 'npm test'
      }
    }                   

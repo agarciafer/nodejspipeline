@@ -5,7 +5,7 @@ agent {
         reuseNode true
     }
 }
-stages {
+node {
    def gitcommit
    stage('Verificacion SCM') {
      checkout scm

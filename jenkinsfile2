@@ -7,8 +7,8 @@ node {
    }
    stage('test') {
      def contenedortest = docker.image('centos/nodejs-8-centos7')
-    // contenedortest.pull()
-     //contenedortest.inside {
+    contenedortest.pull()
+     contenedortest.inside {
      nodejs(nodeJSInstallationName: 'nodejs') {
        sh 'npm install --only=dev'
        sh 'npm test'

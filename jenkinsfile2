@@ -6,7 +6,7 @@ node {
      gitcommit = readFile('.git/commit-id').trim()
    }
    stage('test') {
-     def contenedortest = docker.image('centos/nodejs-8-centos7')
+     def contenedortest = docker.image('jelastic/nodejs')
     contenedortest.pull()
      contenedortest.inside {
        sh 'npm install --only=dev'
